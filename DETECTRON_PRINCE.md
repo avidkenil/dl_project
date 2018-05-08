@@ -31,10 +31,10 @@ python2 /your/path/to/tools/infer_simple.py \
     --output-dir /where/you/want/to/save/blackened/image \
     --image-ext jpg \
     --wts https://s3-us-west-2.amazonaws.com/detectron/35861858/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml.02_32_51.SgT4y1cO/output/train/coco_2014_train:coco_2014_valminusminival/generalized_rcnn/model_final.pkl \
-    --pixel "(x_location, y_location)"
+    --pixel "(y_location, x_location)"
     /your/path/to/your/image
 ```
-The "wts" will download the model file from AWS. Alternatively, you can use */scratch/tjf324/DL/model_final.pkl* for this specific model (you should have the rights).
+The "wts" will download the model file from AWS. Alternatively, you can use */scratch/tjf324/DL/model_final.pkl* for this specific model (you should have the rights). Also note, `x_location` and `y_location` are measured from the top left corner of the image.
 
 
 If the pixel you mention has a mask in it, it will return the path to the blackened out image, the mask, the removed class and the score of that class. If no mask, it raises an Exception.
