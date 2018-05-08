@@ -5,7 +5,7 @@ Ask for a **GPU** instance using SBATCH / run an interactive one (will not work 
 Load the pre-installed detectron image that NYU's HPC people kindly installed for us
 
 ```bash
-module load singularity/2.4.4
+module load singularity/2.5.1
 singularity shell --nv /beegfs/work/public/singularity/detectron.img
 # or something other than shell, see singularity doc
 ```
@@ -27,11 +27,11 @@ python2 /detectron/tests/test_spatial_narrow_as_op.py
 3. On a **singularity shell with detectron image loaded and the PYTHONPATH setup**, run:
 ```bash
 python2 /your/path/to/tools/infer_simple.py \
-    --cfg /detectron/configs/configs/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml \
+    --cfg /detectron/configs/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml \
     --output-dir /where/you/want/to/save/blackened/image \
     --image-ext jpg \
     --wts https://s3-us-west-2.amazonaws.com/detectron/35861858/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml.02_32_51.SgT4y1cO/output/train/coco_2014_train:coco_2014_valminusminival/generalized_rcnn/model_final.pkl \
-    --pixel "[x_location, y_location]"
+    --pixel "(x_location, y_location)"
     /your/path/to/your/image
 ```
 The "wts" will download the model file from AWS. Alternatively, you can use */scratch/tjf324/DL/model_final.pkl* for this specific model (you should have the rights).
