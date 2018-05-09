@@ -38,21 +38,21 @@ The "wts" will download the model file from AWS. Alternatively, you can use */sc
 
 If the pixel you mention has a mask in it, it will return the path to the blackened out image, the mask, the removed class and the score of that class. If no mask, it raises an Exception.
 
-Example commands:
+If weights are already downloaded (e.g. in `configs/weights/model_final.pkl`), sample commands may look like:
 ```bash
 python2 tools/infer_simple.py \
     --cfg configs/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml \
     --output-dir demo/custom_demo/output/ \
-    --image-ext png \
-    --wts https://s3-us-west-2.amazonaws.com/detectron/35861858/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml.02_32_51.SgT4y1cO/output/train/coco_2014_train:coco_2014_valminusminival/generalized_rcnn/model_final.pkl \
+    --image-ext jpg \
+    --wts configs/weights/model_final.pkl \
     --pixel "(163,50)" demo/custom_demo/football.jpg
 ```
 ```bash
 python2 tools/infer_simple.py \
     --cfg configs/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml \
     --output-dir demo/custom_demo/output/ \
-    --image-ext png \
-    --wts https://s3-us-west-2.amazonaws.com/detectron/35861858/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml.02_32_51.SgT4y1cO/output/train/coco_2014_train:coco_2014_valminusminival/generalized_rcnn/model_final.pkl \
+    --image-ext jpg \
+    --wts configs/weights/model_final.pkl \
     --pixel "(390,534)" demo/custom_demo/snow.jpg
 ```
 
@@ -60,7 +60,7 @@ python2 tools/infer_simple.py \
 python2 tools/infer_simple.py \
     --cfg configs/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml \
     --output-dir demo/custom_demo/output/ \
-    --image-ext png \
-    --wts https://s3-us-west-2.amazonaws.com/detectron/35861858/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml.02_32_51.SgT4y1cO/output/train/coco_2014_train:coco_2014_valminusminival/generalized_rcnn/model_final.pkl \
+    --image-ext jpg \
+    --wts configs/weights/model_final.pkl \
     --pixel "(324,989)" demo/custom_demo/mihir.jpg
 ```
